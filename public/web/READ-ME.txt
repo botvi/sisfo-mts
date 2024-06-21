@@ -1,6 +1,6 @@
-  =>  Template Name    : PestKit - Pest Control Website Template
+  =>  Template Name    : GrowMark - Digital Marketing HTML Template
 
-  =>  Template Link    : https://htmlcodex.com/pest-control-website-template
+  =>  Template Link    : https://htmlcodex.com/digital-marketing-html-template
 
   =>  Template License : https://htmlcodex.com/license (or read the LICENSE.txt file)
 

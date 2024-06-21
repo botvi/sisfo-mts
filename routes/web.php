@@ -8,8 +8,8 @@ use App\Http\Controllers\{
     GambarKegiatanController,
     LoginController,
     RegisterController,
-    VideoKegiatanController
-  
+    VideoKegiatanController,
+    WebsiteController
 };
 use App\Models\VideoKegiatan;
 
@@ -38,7 +38,7 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 
 // ADMIN routes
 Route::group(['middleware' => ['role:admin']], function () {
-Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategoris.index');
 Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategoris.create');
@@ -70,3 +70,10 @@ Route::delete('/videokegiatan/{id}', [VideoKegiatanController::class, 'destroy']
 
 });
 // ADMIN routes
+
+// WEB routes
+Route::get('/', [WebsiteController::class, 'index']);
+Route::get('/galeryfoto', [WebsiteController::class, 'fotokegiatan']);
+Route::get('/galeryvideo', [WebsiteController::class, 'videokegiatan']);
+
+// WEB routes
