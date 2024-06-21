@@ -11,6 +11,8 @@ use App\Http\Controllers\{
     VideoKegiatanController
   
 };
+use App\Models\VideoKegiatan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +34,10 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::post('register', [RegisterController::class, 'register'])->name('register.post');
 // AUTH
 
+
+
+// ADMIN routes
+Route::group(['middleware' => ['role:admin']], function () {
 Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategoris.index');
@@ -48,9 +54,6 @@ Route::get('/berita/{id}/edit', [BeritaController::class, 'edit'])->name('berita
 Route::put('/berita/{id}', [BeritaController::class, 'update'])->name('beritas.update');
 Route::delete('/berita/{id}', [BeritaController::class, 'destroy'])->name('beritas.destroy');
 
-
-
-
 Route::get('/fotokegiatan', [GambarKegiatanController::class, 'index'])->name('gambars.index');
 Route::get('/fotokegiatan/create', [GambarKegiatanController::class, 'create'])->name('gambars.create');
 Route::post('/fotokegiatan-store', [GambarKegiatanController::class, 'store'])->name('gambars.store');
@@ -58,4 +61,12 @@ Route::get('/fotokegiatan/{id}/edit', [GambarKegiatanController::class, 'edit'])
 Route::put('/fotokegiatan/{id}', [GambarKegiatanController::class, 'update'])->name('gambars.update');
 Route::delete('/fotokegiatan/{id}', [GambarKegiatanController::class, 'destroy'])->name('gambars.destroy');
 
+Route::get('/videokegiatan', [VideoKegiatanController::class, 'index'])->name('videos.index');
+Route::get('/videokegiatan/create', [VideoKegiatanController::class, 'create'])->name('videos.create');
+Route::post('/videokegiatan-store', [VideoKegiatanController::class, 'store'])->name('videos.store');
+Route::get('/videokegiatan/{id}/edit', [VideoKegiatanController::class, 'edit'])->name('videos.edit');
+Route::put('/videokegiatan/{id}', [VideoKegiatanController::class, 'update'])->name('videos.update');
+Route::delete('/videokegiatan/{id}', [VideoKegiatanController::class, 'destroy'])->name('videos.destroy');
 
+});
+// ADMIN routes

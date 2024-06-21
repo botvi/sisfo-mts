@@ -1,16 +1,18 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BeritaController extends Controller
 {
     public function index()
     {
-        $beritas = Berita::with('kategori','user')->get();
+        $beritas = Berita::with('kategori', 'user')->get();
         return view('pageadmin.berita.index', compact('beritas'));
     }
 
@@ -35,14 +37,16 @@ class BeritaController extends Controller
     
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time().'.'.$image->extension();
+            $imageName = time() . '.' . $image->extension();
             $image->move(public_path('thumbnail'), $imageName);
-            $data['image'] = 'thumbnail/'.$imageName;
+            $data['image'] = 'thumbnail/' . $imageName;
         }
     
         Berita::create($data);
     
-        return redirect()->route('beritas.index')->with('success', 'Berita berhasil ditambahkan.');
+        Alert::success('Success', 'Berita berhasil ditambahkan.');
+    
+        return redirect()->route('beritas.index');
     }
 
     public function show($id)
@@ -93,15 +97,18 @@ class BeritaController extends Controller
         // Update the berita
         $berita->update($data);
     
-        // Redirect with success message
-        return redirect()->route('beritas.index')->with('success', 'Berita berhasil diperbarui.');
+        Alert::success('Success', 'Berita berhasil diperbarui.');
+    
+        return redirect()->route('beritas.index');
     }
 
     public function destroy($id)
     {
         $berita = Berita::findOrFail($id);
         $berita->delete();
-
-        return redirect()->route('beritas.index')->with('success', 'Berita berhasil dihapus.');
+    
+        Alert::success('Success', 'Berita berhasil dihapus.');
+    
+        return redirect()->route('beritas.index');
     }
 }

@@ -2,42 +2,39 @@
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Video Kegiatan /</span> Index</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> video kegiatan</h4>
 
-        <div class="card mb-4">
-            <h5 class="card-header">Daftar Video Kegiatan</h5>
-            <div class="card-body">
-                <a href="{{ route('video_kegiatans.create') }}" class="btn btn-primary mb-3">Upload Video</a>
-                <table class="table">
+        <div class="mb-3">
+            <a href="{{ route('videos.create') }}" class="btn btn-primary">Tambah Data</a>
+        </div>
+
+        <div class="card">
+            <h5 class="card-header">Kategori</h5>
+            <div class="table-responsive text-nowrap p-4">
+                <table id="example" class="display compact nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Video</th>
-                            <th>Actions</th>
+                            <th>Judul</th>
+                            <th>Keterangan</th>
+                            <th>YouTube URL</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach($videos as $video)
+                    <tbody class="table-border-bottom-0">
+                        @foreach ($videos as $key => $video)
                             <tr>
-                                <td>{{ $video->title }}</td>
-                                <td>{{ $video->description }}</td>
+                                <td class="fw-bold">{{ $video->title }}</td>
+                                <td class="fw-bold">{{ $video->description }}</td>
+                                <td class="fw-bold"><a href="{{ $video->youtube_link }}">{{ $video->youtube_link }}</a></td>
                                 <td>
-                                    @if ($video->video_path)
-                                        <video width="200" controls>
-                                            <source src="{{ asset($video->video_path) }}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    @else
-                                        No video available
-                                    @endif
-                                </td>
-                                <td>
-                                    <a href="{{ route('video_kegiatans.edit', $video->id) }}" class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('video_kegiatans.destroy', $video->id) }}" method="POST" style="display:inline;">
+                                    <a href="{{ route('videos.edit', $video->id) }}"
+                                        class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('videos.destroy', $video->id) }}" method="POST"
+                                        style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus Kegiatan ini?')">Hapus</button>
                                     </form>
                                 </td>
                             </tr>

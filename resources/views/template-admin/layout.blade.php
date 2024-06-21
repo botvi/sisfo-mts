@@ -132,9 +132,12 @@
                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQHstFutlfl8tgZAtY8nDWucSWEvFM5AETQ&s" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
-                          <div class="flex-grow-1">
-                            <small class="text-muted">Admin</small>
-                          </div>
+                      
+                        <div class="flex-grow-1">
+                          <span class="fw-semibold d-block">{{ Auth::user()->nama }}</span>
+                          <small class="text-muted">{{ Auth::user()->role }}</small>
+                        </div>
+                        
                         </div>
                       </a>
                     </li>

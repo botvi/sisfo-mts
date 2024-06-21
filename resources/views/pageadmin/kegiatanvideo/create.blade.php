@@ -1,45 +1,31 @@
-<!-- resources/views/upload_video.blade.php -->
+<!-- resources/views/pageadmin/kegiatanvideo/create.blade.php -->
+@extends('template-admin.layout')
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Upload Video</title>
-</head>
-<body>
-    @if (session('success'))
-        <div style="color: green;">
-            {{ session('success') }}
+@section('content')
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms /</span> tambah kegiatan</h4>
+
+        <div class="card mb-4">
+            <h5 class="card-header">Tambah Kegiatan</h5>
+            <div class="card-body">
+                
+                <form action="{{ route('videos.store') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Judul</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Keterangan</label>
+                        <input type="text" class="form-control" id="description" name="description" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="youtube_link" class="form-label">YouTube URL</label>
+                        <input type="text" class="form-control" id="youtube_link" name="youtube_link" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
         </div>
-    @endif
-
-    @if (session('error'))
-        <div style="color: red;">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    @if ($errors->any())
-        <div style="color: red;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    <form action="{{ route('video.upload') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" required><br><br>
-        
-        <label for="description">Description:</label>
-        <textarea name="description" id="description" required></textarea><br><br>
-        
-        <label for="video">Upload Video:</label>
-        <input type="file" name="video" id="video" required><br><br>
-        
-        <button type="submit">Upload</button>
-    </form>
-</body>
-</html>
+    </div>
+@endsection

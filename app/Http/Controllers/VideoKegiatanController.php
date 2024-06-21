@@ -4,82 +4,79 @@ namespace App\Http\Controllers;
 
 use App\Models\VideoKegiatan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VideoKegiatanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $videos = VideoKegiatan::all();
+        return view('pageadmin.kegiatanvideo.index', compact('videos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('pageadmin.kegiatanvideo.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        // Validate input
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'youtube_link' => 'required|string',
+        ]);
+
+        // Create new video
+        $video = new VideoKegiatan();
+        $video->title = $request->input('title');
+        $video->description = $request->input('description');
+        $video->youtube_link = $request->input('youtube_link');
+        $video->save();
+
+        // Redirect back with success message
+        Alert::success('Success', 'Kegiatan berhasil ditambahkan.');
+
+        return redirect()->route('videos.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\VideoKegiatan  $videoKegiatan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(VideoKegiatan $videoKegiatan)
+    public function edit($id)
     {
-        //
+        $video = VideoKegiatan::findOrFail($id);
+        return view('pageadmin.kegiatanvideo.edit', compact('video'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\VideoKegiatan  $videoKegiatan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(VideoKegiatan $videoKegiatan)
+    public function update(Request $request, $id)
     {
-        //
+        // Validate input
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'youtube_link' => 'required|string',
+        ]);
+
+        // Update video
+        $video = VideoKegiatan::findOrFail($id);
+        $video->title = $request->input('title');
+        $video->description = $request->input('description');
+        $video->youtube_link = $request->input('youtube_link');
+        $video->save();
+
+        // Redirect back with success message
+        Alert::success('Success', 'Kegiatan berhasil diperbarui.');
+
+        return redirect()->route('videos.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\VideoKegiatan  $videoKegiatan
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, VideoKegiatan $videoKegiatan)
+    public function destroy($id)
     {
-        //
-    }
+        $video = VideoKegiatan::findOrFail($id);
+        $video->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\VideoKegiatan  $videoKegiatan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(VideoKegiatan $videoKegiatan)
-    {
-        //
+        // Redirect back with success message
+        Alert::success('Success', 'Kegiatan berhasil dihapus.');
+
+        return redirect()->route('videos.index');
     }
 }

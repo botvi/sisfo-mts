@@ -57,37 +57,36 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
+        <li class="menu-item {{ Request::is('/') ? 'active' : '' }}">
             <a href="/" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ Request::is('kategori') ? 'active' : '' }}">
             <a href="/kategori" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-list-minus"></i>
                 <div data-i18n="Analytics">Kategori</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ Request::is('berita') ? 'active' : '' }}">
             <a href="/berita" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-news"></i>
                 <div data-i18n="Analytics">Berita</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="/video_kegiatans" class="menu-link">
+        <li class="menu-item {{ Request::is('videokegiatan') ? 'active' : '' }}">
+            <a href="/videokegiatan" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-videos"></i>
                 <div data-i18n="Analytics">Video Kegiatan</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ Request::is('fotokegiatan') ? 'active' : '' }}">
             <a href="/fotokegiatan" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-image"></i>
                 <div data-i18n="Analytics">Foto Kegiatan</div>
             </a>
         </li>
-        
-
     </ul>
+    
 </aside>

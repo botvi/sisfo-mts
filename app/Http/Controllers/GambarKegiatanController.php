@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\GambarKegiatan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GambarKegiatanController extends Controller
 {
@@ -37,10 +38,10 @@ class GambarKegiatanController extends Controller
     
         GambarKegiatan::create($data);
     
-        return redirect()->route('gambars.index')->with('success', 'Kegiatan berhasil ditambahkan.');
+        Alert::success('Success', 'Kegiatan berhasil ditambahkan.');
+    
+        return redirect()->route('gambars.index');
     }
-
-   
 
     public function edit($id)
     {
@@ -57,7 +58,7 @@ class GambarKegiatanController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
-        // Find the berita
+        // Find the gambar kegiatan
         $gambar = GambarKegiatan::findOrFail($id);
     
         // Collect the data
@@ -77,18 +78,27 @@ class GambarKegiatanController extends Controller
             $data['image'] = 'gambarkegiatan/' . $imageName;
         }
     
-        // Update the berita
+        // Update the gambar kegiatan
         $gambar->update($data);
     
-        // Redirect with success message
-        return redirect()->route('gambars.index')->with('success', 'Kegiatan berhasil diperbarui.');
+        Alert::success('Success', 'Kegiatan berhasil diperbarui.');
+    
+        return redirect()->route('gambars.index');
     }
 
     public function destroy($id)
     {
         $gambar = GambarKegiatan::findOrFail($id);
+    
+        // Delete the image file if exists
+        if ($gambar->image && file_exists(public_path($gambar->image))) {
+            unlink(public_path($gambar->image));
+        }
+    
         $gambar->delete();
 
-        return redirect()->route('gambars.index')->with('success', 'Kegiatan berhasil dihapus.');
+        Alert::success('Success', 'Kegiatan berhasil dihapus.');
+    
+        return redirect()->route('gambars.index');
     }
 }

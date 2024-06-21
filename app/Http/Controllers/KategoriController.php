@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
@@ -28,8 +29,11 @@ class KategoriController extends Controller
         $kategori->nama = $request->input('nama');
         $kategori->save();
 
+        // Set success message
+        Alert::success('Success', 'Kategori berhasil ditambahkan.');
+
         // Redirect dengan pesan sukses
-        return redirect()->route('kategoris.index')->with('success', 'Kategori berhasil ditambahkan.');
+        return redirect()->route('kategoris.index');
     }
 
     public function edit($id)
@@ -50,8 +54,11 @@ class KategoriController extends Controller
         $kategori->nama = $request->input('nama');
         $kategori->save();
 
+        // Set success message
+        Alert::success('Success', 'Kategori berhasil diperbarui.');
+
         // Redirect dengan pesan sukses
-        return redirect()->route('kategoris.index')->with('success', 'Kategori berhasil diperbarui.');
+        return redirect()->route('kategoris.index');
     }
 
     public function destroy($id)
@@ -59,6 +66,9 @@ class KategoriController extends Controller
         $kategori = Kategori::findOrFail($id);
         $kategori->delete();
 
-        return redirect()->route('kategoris.index')->with('success', 'Kategori berhasil dihapus.');
+        // Set success message
+        Alert::success('Success', 'Kategori berhasil dihapus.');
+
+        return redirect()->route('kategoris.index');
     }
 }

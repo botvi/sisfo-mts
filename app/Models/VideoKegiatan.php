@@ -9,6 +9,6 @@ class VideoKegiatan extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'description', 'video_path'
+        'title', 'description', 'youtube_link' // Ensure the field name matches the form input name
     ];
 }
