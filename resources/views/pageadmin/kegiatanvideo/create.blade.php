@@ -15,10 +15,7 @@
                         <label for="title" class="form-label">Judul</label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Keterangan</label>
-                        <input type="text" class="form-control" id="description" name="description" required>
-                    </div>
+                   
                     <div class="mb-3">
                         <label for="youtube_link" class="form-label">YouTube URL</label>
                         <input type="text" class="form-control" id="youtube_link" name="youtube_link" required>

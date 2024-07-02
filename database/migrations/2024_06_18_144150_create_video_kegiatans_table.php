@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('video_kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
             $table->string('youtube_link');
             $table->timestamps();
         });

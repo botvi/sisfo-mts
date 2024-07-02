@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('gambar_kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('title'); // Title of the article
-            $table->text('description'); // Short description of the article
             $table->string('image')->nullable(); // URL to the image
             $table->timestamps();
         });

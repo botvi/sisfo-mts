@@ -5,22 +5,23 @@
             <a href="index.html">
                 <h2 class="text-white fw-bold m-0">MTS Al-Ma'arif</h2>
             </a>
-            <div class="ms-auto d-flex align-items-center">
-                <small class="ms-4"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</small>
-                <small class="ms-4"><i class="fa fa-envelope me-3"></i>info@example.com</small>
-                <small class="ms-4"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</small>
-                <div class="ms-3 d-flex">
-                    <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""><i
-                            class="fab fa-linkedin-in"></i></a>
+            <div class="ms-auto d-flex flex-column align-items-start">
+                <div class="d-flex align-items-center mb-2">
+                    <small class="ms-4"><i class="fa fa-map-marker-alt me-3"></i>Jalan Ra. Kartini Jalur V Desa Air Emas Kec.Singingi</small>
+                </div>
+                <div class="d-flex align-items-center">
+                    <small class="ms-4"><i class="fa fa-envelope me-3"></i>mtsalmaarifsingingi@gmail.com</small>
+                    <small class="ms-4"><i class="bi bi-whatsapp me-3"></i></i>082260013007</small>
+                    <div class="ms-3 d-flex">
+                        <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Topbar End -->
 <div class="container-fluid bg-white sticky-top">
     <div class="container">

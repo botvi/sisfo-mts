@@ -15,7 +15,6 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Description</th>
                             <th>Image</th>
                     
                             <th>Aksi</th>
@@ -25,7 +24,6 @@
                         @foreach ($gambars as $gambar)
                             <tr>
                                 <td class="fw-bold">{{ $gambar->title }}</td>
-                                <td>{{ $gambar->description }}</td>
                                 <td><a href="{{ $gambar->image }}" target="_blank">{{ $gambar->image}}</a></td>
                                 <td>
                                     <a href="{{ route('gambars.edit', $gambar->id) }}"

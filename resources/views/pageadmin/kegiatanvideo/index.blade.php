@@ -15,7 +15,6 @@
                     <thead>
                         <tr>
                             <th>Judul</th>
-                            <th>Keterangan</th>
                             <th>YouTube URL</th>
                             <th>Aksi</th>
                         </tr>
@@ -24,7 +23,6 @@
                         @foreach ($videos as $key => $video)
                             <tr>
                                 <td class="fw-bold">{{ $video->title }}</td>
-                                <td class="fw-bold">{{ $video->description }}</td>
                                 <td class="fw-bold"><a href="{{ $video->youtube_link }}">{{ $video->youtube_link }}</a></td>
                                 <td>
                                     <a href="{{ route('videos.edit', $video->id) }}"

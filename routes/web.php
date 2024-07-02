@@ -73,6 +73,9 @@ Route::delete('/videokegiatan/{id}', [VideoKegiatanController::class, 'destroy']
 
 // WEB routes
 Route::get('/', [WebsiteController::class, 'index']);
+Route::get('/berita/{title}', [WebsiteController::class, 'showBerita'])->name('berita.show');
+
+
 Route::get('/galeryfoto', [WebsiteController::class, 'fotokegiatan']);
 Route::get('/galeryvideo', [WebsiteController::class, 'videokegiatan']);
 
