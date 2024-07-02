@@ -13,8 +13,8 @@
                     <small class="ms-4"><i class="fa fa-envelope me-3"></i>mtsalmaarifsingingi@gmail.com</small>
                     <small class="ms-4"><i class="bi bi-whatsapp me-3"></i></i>082260013007</small>
                     <div class="ms-3 d-flex">
-                        <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href="https://www.facebook.com/mtsalmaarif.ariemas?mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href="https://www.instagram.com/mtsalmaarif.singingi?igsh=aTFtaDluaGozNnA1"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>

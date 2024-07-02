@@ -66,9 +66,9 @@
                     <p class="mb-2"><i class="bi bi-whatsapp me-3"></i>082260013007</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>imtsalmaarifsingingi@gmail.com</p>
                     <div class="d-flex pt-3">
-                        <a class="btn btn-square btn-light rounded-circle me-2" href=""><i
+                        <a class="btn btn-square btn-light rounded-circle me-2" href="https://api.whatsapp.com/send/?phone=6282260013007&text&type=phone_number&app_absent=0"><i
                                 class="bi bi-whatsapp"></i></a>
-                        <a class="btn btn-square btn-light rounded-circle me-2" href=""><i
+                        <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.facebook.com/mtsalmaarif.ariemas?mibextid=ZbWKwL"><i
                                 class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
