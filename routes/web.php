@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     BeritaController,
     GambarKegiatanController,
     LoginController,
+    PendaftaraAdminController,
     RegisterController,
     VideoKegiatanController,
     WebsiteController,
@@ -69,10 +70,15 @@ Route::get('/videokegiatan/{id}/edit', [VideoKegiatanController::class, 'edit'])
 Route::put('/videokegiatan/{id}', [VideoKegiatanController::class, 'update'])->name('videos.update');
 Route::delete('/videokegiatan/{id}', [VideoKegiatanController::class, 'destroy'])->name('videos.destroy');
 
+Route::get('pendaftaransiswa/{id}/download-pdf', [PendaftaraAdminController::class, 'downloadPdf'])->name('pendaftaransiswa.downloadPdf');
+Route::get('/pendaftaransiswa', [PendaftaraAdminController::class, 'index'])->name('pendaftaransiswa.index');
+Route::get('/pendaftaransiswa/{id}', [PendaftaraAdminController::class, 'show'])->name('pendaftaransiswa.show');
+Route::post('/pendaftaransiswa/{id}/update-status', [PendaftaraAdminController::class, 'updateStatus'])->name('pendaftaransiswa.updateStatus');
 });
 // ADMIN routes
 
 // WEB routes
+
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/berita/{title}', [WebsiteController::class, 'showBerita'])->name('berita.show');
 
@@ -82,6 +88,9 @@ Route::get('/galeryvideo', [WebsiteController::class, 'videokegiatan']);
 
 
 Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+Route::group(['middleware' => ['role:admin,user']], function () {
 Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 Route::put('/pendaftaran/{pendaftaran}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
+});
+
 // WEB routes

@@ -21,6 +21,6 @@ class RoleMiddleware
             return $next($request);
         }
 
-        return redirect('/login'); // atau ke halaman lain yang Anda inginkan
+        return redirect('/'); // atau ke halaman lain yang Anda inginkan
     }
 }

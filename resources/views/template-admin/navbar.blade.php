@@ -63,6 +63,12 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('pendaftaransiswa') ? 'active' : '' }}">
+            <a href="/pendaftaransiswa" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Analytics">Pendaftaran</div>
+            </a>
+        </li>
         <li class="menu-item {{ Request::is('kategori') ? 'active' : '' }}">
             <a href="/kategori" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-list-minus"></i>
