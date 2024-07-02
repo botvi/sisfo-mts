@@ -47,8 +47,13 @@
                     </div>
                 </div>
                 <div class="ms-auto d-none d-lg-block">
-                    <a href="" class="btn btn-primary rounded-pill py-2 px-3">LOGIN</a>
+                    @auth
+                    <a href="/logout" class="btn btn-primary rounded-pill py-2 px-3">LOGOUT</a>
+                    @else
+                        <a href="/login" class="btn btn-primary rounded-pill py-2 px-3">LOGIN</a>
+                    @endauth
                 </div>
+                
             </div>
         </nav>
     </div>

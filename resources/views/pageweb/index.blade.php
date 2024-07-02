@@ -18,7 +18,7 @@
         </nav>
         <div class="mt-4">
             <a href="{{ asset('web') }}/pdf/brosur.pdf" class="btn btn-primary btn-lg mx-2 rounded-pill animated slideInDown" data-wow-delay="0.2s">Brosur</a>
-            <a href="link-to-registration-page" class="btn btn-success btn-lg rounded-pill mx-2 animated slideInDown" data-wow-delay="0.3s">Pendaftaran</a>
+            <a href="pendaftaran" class="btn btn-success btn-lg rounded-pill mx-2 animated slideInDown" data-wow-delay="0.3s">Pendaftaran</a>
         </div>
     </div>
 </div>

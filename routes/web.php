@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     LoginController,
     RegisterController,
     VideoKegiatanController,
-    WebsiteController
+    WebsiteController,
+    PendaftaranController
 };
 use App\Models\VideoKegiatan;
 
@@ -72,11 +73,15 @@ Route::delete('/videokegiatan/{id}', [VideoKegiatanController::class, 'destroy']
 // ADMIN routes
 
 // WEB routes
-Route::get('/', [WebsiteController::class, 'index']);
+Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/berita/{title}', [WebsiteController::class, 'showBerita'])->name('berita.show');
 
 
 Route::get('/galeryfoto', [WebsiteController::class, 'fotokegiatan']);
 Route::get('/galeryvideo', [WebsiteController::class, 'videokegiatan']);
 
+
+Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+Route::put('/pendaftaran/{pendaftaran}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
 // WEB routes
