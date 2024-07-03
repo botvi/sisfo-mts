@@ -32,4 +32,8 @@ class WebsiteController extends Controller
         $videos = VideoKegiatan::all();
         return view('pageweb.videokegiatan', compact('videos'));
     }
+    public function profilsekolah()
+    {
+        return view('pageweb.profilsekolah');
+    }
 }

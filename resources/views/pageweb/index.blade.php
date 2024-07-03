@@ -47,9 +47,9 @@
                 </ul>
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                <h2 class="mb-4 text-center">KEPALA MADRASAH</h2>
+                <h2 class="mb-4 text-center">KEPALA SEKOLAH</h2>
                 <div class="text-center">
-                    <img src="{{ asset('web') }}/img/kepalasekolah.jpg" alt="Kepala Madrasah" class="img-fluid rounded mb-4" style="max-width: 300px;">
+                    <img src="{{ asset('env') }}/kepalasekolah.jpg" alt="Kepala Madrasah" class="img-fluid rounded mb-4" style="max-width: 300px;">
                     <h4>Muhammad Yahya,S.Pd</h4>
                     {{-- <p>Deskripsi singkat atau kutipan dari Kepala Madrasah, jika ada.</p> --}}
                 </div>

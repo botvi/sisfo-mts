@@ -11,7 +11,8 @@ use App\Http\Controllers\{
     RegisterController,
     VideoKegiatanController,
     WebsiteController,
-    PendaftaranController
+    PendaftaranController,
+    UserController
 };
 use App\Models\VideoKegiatan;
 
@@ -83,14 +84,21 @@ Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/berita/{title}', [WebsiteController::class, 'showBerita'])->name('berita.show');
 
 
-Route::get('/galeryfoto', [WebsiteController::class, 'fotokegiatan']);
-Route::get('/galeryvideo', [WebsiteController::class, 'videokegiatan']);
+Route::get('/galeryfoto', [WebsiteController::class, 'fotokegiatan'])->name('galeryfoto');
+Route::get('/galeryvideo', [WebsiteController::class, 'videokegiatan'])->name('galeryvideo');
 
 
+Route::get('/profilsekolah', [WebsiteController::class, 'profilsekolah'])->name('profilsekolah');
 Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+
 Route::group(['middleware' => ['role:admin,user']], function () {
 Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 Route::put('/pendaftaran/{pendaftaran}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
+});
+
+Route::group(['middleware' => ['role:admin,user']], function () {
+Route::get('/profile', [UserController::class, 'show'])->name('profile');
+Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 });
 
 // WEB routes
