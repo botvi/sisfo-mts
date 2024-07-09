@@ -32,7 +32,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('env') }}/logomts.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,7 +76,7 @@
               <!-- Logo -->
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
-                 
+                 <img src="{{ asset('env') }}/logomts.png" width="30px" srcset="">
                   <span class="app-brand-text demo text-body fw-bolder">Login</span>
                 </a>
               </div>
